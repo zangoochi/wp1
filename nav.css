@@ -1,0 +1,11 @@
+.headerNav {
+    background-color: black;
+    color: white;
+    padding-left: 40px;
+}
+
+.pageNav {
+	float: left;
+	padding : 1em; 
+	color: white;
+}
