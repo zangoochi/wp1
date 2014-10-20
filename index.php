@@ -1,34 +1,31 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en">
+<html>
 <head> 
 <link rel="stylesheet" type="text/css" href="index.css">
 <link rel="stylesheet" type="text/css" href="head.css">
 <link rel="stylesheet" type="text/css" href="aside.css">
 <link rel="stylesheet" type="text/css" href="nav.css">
 
-
-
 <meta charset="utf-8"/>
 <title>Zach's Homepage</title> 
+
 </head>
 <body>
-<header>
-
-<h1>Zach Montgomery</h1>
-
-<nav class="headerNav">
-
-<a href="https://webdev.cs.kent.edu/zmontgom/index.html">Zach's Home Page</a>&#xA0;&#xA0;
-<a href="http://www.kent.edu">Kent State University</a>&#xA0;&#xA0;
-<a href="http://www2.kent.edu/cas/cs/">Kent State Computer Science</a>&#xA0;&#xA0;
-<a href="http://www.cs.kent.edu/~farrell/wp1/index.html">Web Programming I</a>&#xA0;&#xA0;
-
-</nav>
-</header>
 
 <table>
+<tr>
+<td colspan = "3">
+	<?php include 'head.php' ?>
+	</td>
+</tr>
+<tr>
+<td colspan="3">
+<iframe name="iframe_a"></iframe>
+</td>
+</tr>
+<tr>
 	<td class="leftbox">
-		<?php include('nav.php') ?>
+		<?php include 'nav.php';?>
 	</td>
 
 	<td class="about">
@@ -46,7 +43,13 @@
 				<?php include('aside.php') ?>
 			</ul>
 	</td>
+	</tr>
+
+	<tr>
+    <td colspan = "3">
+      <footer>End-of-page- Footer</footer>
+    </td>
 </table>
-<div class="clear"></div>
-<footer>End-of-page Footer</footer>
-</body></html>
+
+</body>
+</html>

@@ -1,5 +1,18 @@
-aside {
-	float: left; 
-	color: white; 
-	padding: 1em;
+.aside{
+	width:15%;
+	background-color: darkgrey;
+	color:white;
+}
+a:link{
+	color: white;
+	text-decoration: none;
+}
+
+a:visited{
+	color:grey;
+}
+
+a:hover{
+	color:red;
+	font-weight: bold;
 }

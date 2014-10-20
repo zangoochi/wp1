@@ -1,7 +1,11 @@
 header { 
+	text-align:right;
+	background-color: darkblue;
+	color:yellow;
+	margin-top: 0px;
     border: thin solid black;
 }
 h1 {
-    text-align: center;
+    text-align: right;
 }
 

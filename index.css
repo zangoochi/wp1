@@ -1,4 +1,7 @@
 body {
+	width: auto;
+	height: auto;
+	position: relative;
 	margin: 25px;
 }
 
@@ -15,14 +18,26 @@ footer {
 	text-align: center
 }
 
+table {
+	position:relative;
+	padding-top:0em;
+}
+
+td {
+	vertical-align: top;
+}
+ 
+iframe{
+	;
+}
+
 .leftbox {
+	width:15%;
 	background-color: darkgrey;
 }
 
 .about {
-	float: left; 
-	padding: 10px; 
-	width:50%; 
+	width:65%; 
 	background-color: white;
 }
 
@@ -38,5 +53,3 @@ footer {
 	margin-bottom: 8px; 
 	margin-top: 8px;
 }
-
-#sectionArticle
