@@ -19,22 +19,12 @@
 	</td>
 </tr>
 <tr>
-<td colspan="3">
-<iframe name="iframe_a"></iframe>
-</td>
-</tr>
-<tr>
 	<td class="leftbox">
-		<?php include 'nav.php';?>
+		<?php include 'nav.php' ?>
 	</td>
 
 	<td class="about">
-		<h2>About Zach Montgomery</h2>
-			<div class="sectionArticle">
-				<p></p><br/>
-				<p><img id="myPicture" src="pictures/me.jpg" alt="Picture of Zach Montgomery" > The picture is one of my high school graduation pictures from 4 years ago.</p>
-				<p>My name is Zach Montgomery and I attend Kent State University. I am attending the college of arts and science. I am a senior this year and will be graduating in May with a degree in computer science. </p> <br/>
-			</div>
+		<iframe name="iframe_a" src="about.php"></iframe>
 	</td>
 
 	<td class="aside">

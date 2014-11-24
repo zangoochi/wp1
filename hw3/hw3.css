@@ -1,0 +1,64 @@
+h1 {
+	text-align: center;
+}
+
+fieldset {
+	border:dotted;
+	background:lightgrey;
+	margin: 1em;
+}
+
+fieldset legend {
+	font-style: italic;
+	font-weight: bold;
+	
+}
+
+span{
+	position:relative;
+	border-radius: 25%;
+}
+span[id$="errors"]{
+    position: relative;
+    width: 250px;
+    height: 100px;
+    padding: 5px;
+    color:red;
+    background: white;
+    border: solid;
+    border-color: #666;
+    -webkit-border-radius: 65px;
+    -moz-border-radius: 65px;
+    border-radius: 65px;
+    bottom:10px;
+    left:8px;
+}
+
+span[id$="errors"]:before{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -15px;
+	top: 5px;
+	border: 8px solid;
+	border-color: transparent #666 #666 transparent;
+
+}
+
+span[id$="errors"]:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: -8px;
+	top:8px;
+	border: 5px solid;
+	border-color: transparent #fff #fff transparent;
+}
+
+span:empty{
+	display:none;
+}
+
+

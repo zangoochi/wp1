@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html> 
+
+	<head>
+
+		<meta charset="utf-8">
+		<title>Student Graduation Form</title>
+		<!--Include hw3 stylesheet that formats style of the form and include
+		hw3.js which runs the form validation and functions -->
+		<link rel="stylesheet" type="text/css" href="hw3.css">
+		<script type="text/javascript" src="hw3.js"></script>
+
+	</head>
+
+	<body onload="cleanForm()">
+
+		<h1>Student Graduation Form</h1>
+
+
+		<!--Calls checkForm on this to run validations. Cancel novalidate. I cancel this because parts of the form
+		validation work on some browsers and others do not. Patterns do not work in safari, so instead I rewrote them and turned them off so they work in all browsers. -->
+		<form name="processForm" method="POST" action="process.php" onsubmit="return(checkForm(this))" novalidate="novalidate">
+
+
+			<!--Portion for Personal information such as first name, last name, and email  -->
+    		<fieldset> 
+				<legend>Personal Information</legend>
+
+					<!--First Name input area with span that follows to hold the errors if any validation fails  -->
+
+					First Name: <input type="text" name="first_name" required="required" placeholder="First Name">
+					<span id="first_name_errors" class="arrow-left" ></span>
+
+				<p>
+					<!--Last Name input area with span that follows to hold the errors if any validation fails  -->
+					Last Name: <input type="text" name="last_name" required="required" placeholder="Last Name">
+					<span id="last_name_errors"></span>
+				</p>
+
+				<p>
+					<!--Email input area with span that follows to hold the errors if any validation fails  -->
+					Email: <input type="email" name="email" required="required" placeholder="Email">
+					<span id="email_errors"></span>
+				</p>
+
+			</fieldset>
+
+			<!--Portion for Degree history such as major, degree, year admitted and year graduated/are going to graduate  -->
+			<fieldset>
+				<legend>Degree History</legend>
+
+					Major:
+
+					<!-- Radio buttons for major. Calls addTextBox to this group which checks for onchange event using javascript. If onchange is called and the value is "other" then add a textbox -->
+
+						<input id="cs" type="radio" required="required" onChange="addTextBox(this);" name="major" value="cs">
+						<label for="cs">CS</label>
+
+						<input id="ds" type="radio" required="required" onChange="addTextBox(this);" name="major" value="ds"/>
+						<label for="ds">Digital Science</label>
+
+						<input id="jmc" type="radio" required="required" onChange="addTextBox(this);" name="major" value="jmc"/>
+						<label for="jmc">JMC</label>
+
+
+						<input id="other" type="radio" required="required" onChange="addTextBox(this);" name="major" value="other"/>
+						<label for="other">Other</label>
+
+						<span id="major_errors"></span>
+
+						<!-- Placeholder for other input field -->
+						<div id="otherPlaceholder"><input id='otherText' name='otherText' type='text' placeholder='Enter other major: ' pattern='^[A-Za-z ]+$' ></div>
+
+					<p>
+					Degree:
+
+						<input id="ba" type="radio" required="required" name="degree" value="BA"/>
+						<label for="ba">BA</label>
+
+						<input id="bs" type="radio" required="required" name="degree" value="BS"/>
+						<label for="bs">BS</label>
+						<span id='degree_errors'></span>
+
+
+					</p>
+					
+					<p>
+
+					Year Entered:
+				  		<input id="admitted" type="text" required="required" name="entered" placeholder="mm-dd-yyyy" />
+				  		<span id="admitted_errors"></span>
+
+					</p>
+			
+					<p>
+					Year Graduated:
+
+				  		<input id="graduation" type="text" required="required" name="graduated" placeholder="mm-dd-yyyy" />
+						<span id="graduation_errors"></span>
+
+					</p>
+
+				</fieldset>
+
+				<!--Portion for Group activities such as honors, internships -->
+				<fieldset>
+					<legend>Group Additional Activities</legend>
+
+					<p>
+					Honors College:
+
+						<input id="honorYes" type="radio" required="required" name="activities" value="yes"/>
+						<label for="honorYes">Yes</label>
+
+						<input id="honorNo" type="radio" required="required" name="activities" value="no"/>
+						<label for="honorNo">No</label>
+
+						<span id="activities_errors"></span>
+					</p>
+
+					<p>
+					Internship:
+
+						<input id="internshipYes" type="radio" required="required" name="internship" value="yes"/>
+						<label for="internshipYes">Yes</label>
+
+						<input id="internshipNo" type="radio" required="required" name="internship" value="no"/>
+						<label for="internshipNo">No</label>
+
+						<span id="internship_errors"></span>
+					</p>
+
+				</fieldset>
+
+				<!--Portion for desired position and locations. -->
+				<fieldset>
+					<legend>Desired Position and Location</legend>
+
+					<p>
+					Position:
+
+						<input id="position" type="text" required="required" name="position" placeholder="position" pattern="^[A-Za-z ]+$" />
+						<span id="position_errors"></span>
+
+						<select name="selected_location" required="required">
+							<option selected="selected" disabled="disabled" value="" class="placeholder">Please select location</option>
+							<option>Cleveland</option>
+							<option>Akron</option>
+							<option>NE Ohio</option>
+							<option>Ohio</option>
+							<option>East Coast</option>
+							<option>Mid-west</option>
+							<option>West Coast</option>
+						</select>
+						<span id="location_errors"></span>
+					</p>
+
+				</fieldset>
+
+
+
+
+			<input type="submit" name="submit" value="Submit"/>
+
+		</form>
+
+	</body>
+
+
+
+</html>

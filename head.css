@@ -9,3 +9,23 @@ h1 {
     text-align: right;
 }
 
+.headerNav {
+    background-color: darkblue;
+    color: white;
+    padding-left: 40px;
+}
+
+nav.headerNav  a:link{
+	color:white;
+	text-decoration: none;
+}
+
+nav.headerNav  a:visited{
+	color:grey;
+}
+
+nav.headerNav  a:hover{
+	color:yellow;
+	font-weight: bold;
+}
+
