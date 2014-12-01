@@ -1,0 +1,28 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="img.slide.css">
+</head>
+<body style="background-color: #def" onload="changeSlide()">
+
+  <table align="center">
+  <tr>
+    <td colspan="3" align="center"><img class="slide" src="" id="display" alt="slide" />
+    <figcaption id="caption"></figcaption></td>
+  </tr>
+  <tr>
+    <td align="right"><img id="back_btn" style="height:50px; width:50px;" title="backward" src="" onclick="prevSlide()" alt="previous slide" /></td>
+    <td id="tiles"><script>setTiles()</script></td>
+    <td align="left"><img id="forward_btn" style="height:50px; width:50px;" src="" title="forward" onclick="nextSlide()" alt="next slide" /></td>
+  </tr>
+  </table>
+
+  <input id="background" type="text" placeholder="Background Color: "/><button onClick="set_background()">Change Background</button><br />
+  <input id="back" type="text" placeholder="Back Button: "/><button onClick="set_back()">Change Back Button</button><br />
+  <input id="forward" type="text" placeholder="Forward Button: "/><button onClick="set_forward()">Change forward Button</button><br />
+
+
+  </body>
+
+    <script type="text/javascript" src="img.slide.js"></script>
+
+  </html>

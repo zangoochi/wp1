@@ -1,0 +1,31 @@
+img.slide
+{ 
+	padding: 20px;
+}
+img.tiles
+{ 
+  display:inline-block;
+  background-color: #060; 
+  margin: 3px;
+  border: 3px solid;
+  height:90px;
+  width:90px;
+}
+
+img.tiles:hover
+{
+background-color:black;
+padding:3px;
+}
+
+img.selected
+{
+	border:3px solid;
+	border-color: yellow;
+}
+
+table td#tiles
+{
+	text-align: center;
+	padding:5px;
+}
