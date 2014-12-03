@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title>Slideshow</title>
   <link rel="stylesheet" type="text/css" href="img.slide.css">
 </head>
 <body onload="changeSlide()">
@@ -7,8 +8,10 @@
   <tr>
     <td colspan="3" align="center">
     	<img class="slide" src="" id="display" alt="slide" />
-    	<figcaption id="caption"></figcaption>
     </td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center"><figcaption id="caption"></figcaption></td>
   </tr>
   <tr>
     <td align="right"><img id="back_btn" class="arrows" title="backward" src="" onclick="prevSlide()" alt="previous slide" /></td>
@@ -16,10 +19,11 @@
     <td align="left"><img id="forward_btn" class="arrows" src="" title="forward" onclick="nextSlide()" alt="next slide" /></td>
   </tr>
   <tr>
+    <td colspan="3" align="center"><div id="tooltip-container"></div></td>
   </tr>
   </table>
 
-   <div id="tooltip-container"></div>
+   
 
   <div class="mods">
   <h2>Dynamic Page Modifications</h2>
@@ -27,6 +31,10 @@
   <input id="back" type="text" placeholder="Back Button: "/> <button onClick="set_back()">Change Back Button</button><br /><br />
   <input id="forward" type="text" placeholder="Forward Button: "/> <button onClick="set_forward()">Change forward Button</button><br />
   </div>
+
+  <footer>
+    All images are from: <a href="http://www.oobject.com/category/incredibly-rare-classic-cars/">Incredibly-Rare-Classic-Cars</a>
+  </footer>
   </body>
 
     <script type="text/javascript" src="img.slide.js"></script>

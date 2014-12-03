@@ -14,8 +14,6 @@ img.tiles
   background-color: #060; 
   margin: 3px;
   border: 3px solid;
-  height:90px;
-  width:90px;
 }
 
 img.tiles:hover
@@ -51,24 +49,41 @@ img.arrows
   width:50px;
 }
 
+figcaption{
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+
 .tooltip
 {
-  text-align: center;
+  position:relative;
+  padding:5px;
   border:2px solid;
   background-color:#def;
-  width:50%;
   height:18px;
   border-radius: 20px;
   margin: 5px;
-  font-weight: bold;
   z-index: 99;
+}
+figcaption.tooltip:before
+{
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 45%;
+  bottom: 30px;
+  border: 8px solid;
+  border-color: transparent transparent black transparent;
 }
 
 #tooltip-container
 {
-  width:25%;
+  display: inline-block;
   text-align: center;
   margin:auto;
+  background-color: lightblue;
 }
 
 
