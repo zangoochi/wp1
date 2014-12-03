@@ -12,8 +12,6 @@ var pic = [ "pictures/car1.jpeg", "pictures/car2.jpeg",
 //PRE: Indexes must match the index of the picture in pic
 var captions = ["car1", "car2", "car3", "car4", "car5", "car6", "car7", "car8", "car9", "car10", "car11", "car12"];
 
-var default_caption = "Classic Cars";
-
 //Slide of all the pictures
 var slide = new Array();
 
@@ -34,8 +32,13 @@ var forward_icon = "pictures/forward.png";
 var back_icon = "pictures/backward.png";
 
 //Number of tiles to be displayed on the page.
-//PRE: Can only include integers that where 12 % integer returns 0. Includes, 2, 3, 4, 6
-var number_of_tiles = 3;
+var number_of_tiles = 4;
+
+
+//Current displayed image height and width
+var width = 280;
+
+var height = 280;
 
 //============================================================================================================
 
@@ -49,8 +52,11 @@ if ( document.images ){
    }
 }
 
-//preloading all styles such as background color
+//preloading all styles such as background color and icons
 setTiles(index);
+document.getElementById("display").src= slide[Math.floor((Math.random() * pic.length-1) + 1)].src; 
+document.getElementById("display").width = width;
+document.getElementById("display").height = height;
 document.getElementById('display').style.background = default_background_color;
 document.getElementById('tiles').style.background = default_background_color;
 document.getElementById('forward_btn').src = forward_icon;
@@ -72,13 +78,15 @@ function loadImage(url)
 
 //============================================================================================================
 
+//===HELPER METHODS===========================================================================================
+
 //changes Slide the the current index
 //Also toggles which pic is selected in the tiles
 function changeSlide()
 { 
-	document.getElementById("display").src= slide[index].src; 
+	
 	toggle_selected(pic[index]);
-	document.getElementById('caption').innerHTML = captions[index];
+	
 
 
 }
@@ -117,20 +125,22 @@ function prevSlide()
 function nextSlide()
 {
 	var idx = ++index;
-
    if( idx >= pic.length) 
    	{ 
    		--index;
    		return; 
    	}
-   	if(idx < slide.length-(number_of_tiles-1) && (idx % tiles.length) == 0)
+ 
+   	if(idx < slide.length && tiles[number_of_tiles-1] == slide[idx-1])
    	{
-   		setTiles(index);
+   		set_next(idx);
    		tile_count = 0;
 	}
 	changeSlide(); 
 }
 
+
+//Sets the tiles. Tiles depend on the number_of_tiles
 function setTiles(value)
 {
 	if(value == null)
@@ -141,10 +151,8 @@ function setTiles(value)
 	tiles = [];
 	for (var i in slide){
 		if(i < number_of_tiles){
-		var img = slide[value];
-		img.id = pic[value];
-		img.setAttribute('class', 'tiles');
-		img.setAttribute('onClick', 'reply_click(this.id)');
+		var img = create_image(value);
+
 		tiles.push(img);
 		document.getElementById('tiles').appendChild(img);
 		}
@@ -156,10 +164,48 @@ function setTiles(value)
 	}
 }
 
+function set_next(value){
+
+	//Swap function to shift tiles to the right
+	var temp = [];
+	for(var i=0; i<number_of_tiles-1; ++i){
+		temp[i] = tiles[i+1]
+	}
+	//Create the new image for the last element
+	var img = create_image(value);
+	temp[number_of_tiles-1] = img;
+
+	document.getElementById('tiles').innerHTML = "";
+	tiles = [];
+
+	for (var j=0; j<temp.length; ++j){
+		var img = temp[j];
+		tiles.push(img);
+		document.getElementById('tiles').appendChild(img);
+	}
+}
+
+function create_image(value)
+{
+	//Create the new image for the last element
+	var img = slide[value];
+	img.id = pic[value];
+	img.setAttribute('class', 'tiles');
+	img.setAttribute('onClick', 'reply_click(this.id)');
+	return img;
+}
+
+
 function reply_click(value)
 {
 	var i = pic.indexOf(value);
+	document.getElementById("display").src= slide[i].src; 
+	document.getElementById("display").width = width;
+	document.getElementById("display").height = height;
 	toggle_selected(value);
+	var capt = document.getElementById('caption')
+	capt.className = "tooltip";
+	capt.innerHTML = captions[i];
 	setSlide(i);
 }
 
@@ -179,6 +225,26 @@ function toggle_selected(value)
 	}
 }
 
+var tile = document.getElementsByClassName("tiles");
+
+    for(var i = 0, j=tile.length; i<j; i++){
+
+        tile[i].addEventListener("mouseover", function() { var capt = document.getElementById('tooltip-container');
+									capt.className = "tooltip";
+									capt.innerHTML = captions[pic.indexOf(this.id)]; 
+								});
+        tile[i].addEventListener("mouseout", function() { var capt = document.getElementById('tooltip-container');
+        							capt.className = ""; 
+        							capt.innerHTML = "";
+								});
+   
+    }
+
+//============================================================================================================
+
+//===Document Modification Areas==============================================================================
+
+
 function set_background()
 {
 	var color = document.getElementById('background').value;
@@ -197,4 +263,7 @@ function set_forward()
 	var button = document.getElementById('forward').value;
 	document.getElementById('forward_btn').src = button;
 }
+
+//============================================================================================================
+
 
