@@ -86,12 +86,7 @@ document.getElementById('display').style.background = default_background_color;
 document.getElementById('tiles').style.background = default_background_color;
 document.getElementById('forward_btn').src = forward_icon;
 document.getElementById('back_btn').src = back_icon;
-
-var tile_size = document.getElementsByClassName('tiles');
-for(var i in tile_size){
-	tile_size[i].width = tile_width;
-	tile_size[i].height = tile_height;
-}
+set_tile_size();
 
 //Preloading addEventListeners for the captions for mouseover and mouseout
 addListener();
@@ -122,6 +117,7 @@ function nextSlide(start)
 	var value = tiles[number_of_tiles-1];
 	start = slide.indexOf(value);
 	check_next(start); 
+	set_tile_size();
 }
 
 function check_next(start)
@@ -145,6 +141,7 @@ function prevSlide(start)
 	var value = tiles[0];
 	start = slide.indexOf(value);
 	check_previous(start); 
+	set_tile_size();
 }
 
 function check_previous(start)
@@ -167,25 +164,13 @@ function check_previous(start)
 	}
 }
 
-function create_image(value)
-{
-	//Create the new image for the last element
-	var img = slide[value];
-	img.id = pic[value];
-	img.setAttribute('class', 'tiles');
-	img.setAttribute('onClick', 'reply_click(this.id)');
-	return img;
-}
-
-
 function reply_click(value)
 {
 	var i = pic.indexOf(value);
 	var display = document.getElementById("display");
 	display.src= slide[i].src; 
-	display.width = width;
-	display.height = height;	
-
+	display.width = picture_width;
+	display.height = picture_height;	
 	toggle_selected(value);
 
 	var capt = document.getElementById('caption');
@@ -252,6 +237,16 @@ function set_forward()
 {
 	var button = document.getElementById('forward').value;
 	document.getElementById('forward_btn').src = button;
+}
+
+
+function set_tile_size()
+{
+	var tile_size = document.getElementsByClassName('tiles');
+	for(var i in tile_size){
+		tile_size[i].width = tile_width;
+		tile_size[i].height = tile_height;
+	}
 }
 
 //============================================================================================================
